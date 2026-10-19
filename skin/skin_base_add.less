@@ -1,0 +1,123 @@
+@darkTheme: true;
+@baseColor: #000000;
+@secondaryColor: #080808;
+@tertiaryColor: #111111;
+@highlightColor: #1c97ea;
+@highlight2Color: #007acc;
+//@highlightColor: #7261e6; //vs2022
+//highlight2Color: #3f3682; //vs2022
+@warningColor: @highlightColor;
+@warning2Color: @highlight2Color;
+@controlColor: @secondaryColor;
+@hoverColor: @highlight2Color;
+@hoverBg2Color: #202020;
+@hoverBgColor: #181818;
+@contrastColor: #454545;
+@borderColor: #303030;
+@selectedColor: #264f78;
+@disabledSelectedColor: desaturate(mix(@baseColor, @selectedColor, 25%), 50%);
+@headerColor: @tertiaryColor;
+@highlightBgColor: @highlightColor;
+@darkBgColor: #000000;
+@invertedColor: #dcdcdc;
+@invertedSecondaryColor: #ffffff;
+@titleBarTextColor: #999999;
+@textColor: @invertedColor;
+
+@tabColor: @headerColor;
+
+@buttonBgColor: @borderColor;
+@buttonBorderColor: #424242;
+@buttonDisabledTextColor: #656565;
+@buttonDisabledBgColor: #101012;
+@buttonDisabledBorderColor: @borderColor;
+
+@windowBorderSize: 1px;
+@windowBorderColor: @highlight2Color;
+
+// colors used for selection icons
+@selectedBgColor: @tertiaryColor;
+@selectedBgColorR: fade(@selectedBgColor, 85%); // for rows
+@selectedHoverColor: mix(@selectedBgColor, @hoverColor);
+
+@font-face { 
+    font-family: Consolas; 
+    src: local('Consolas');
+}
+
+@font-face { 
+    font-family: 'Inconsolata'; 
+    src: url("/skin/fonts/Inconsolata-VariableFont_wdth,wght.ttf") format("truetype");
+}
+
+@baseFontSize: 13px;
+@selectedFontFamily: Inconsolata;
+@fontWeight: 450;
+@fontSpacing: 0.6px;
+@fontStretch: 103%;
+@fontLineSize: @units1_1;
+
+body {
+    font-family: @selectedFontFamily, sans-serif;
+    font-weight: @fontWeight;
+    letter-spacing: @fontSpacing;
+    font-stretch: @fontStretch;
+}
+
+.sidePanel {
+    background-color: @secondaryColor;
+}
+
+.verticalPanel {
+	.sidePanel;
+}
+
+.verticalPanel .transparentBackground {
+    background-color: fadeout(@secondaryColor, @transparentFadeout);
+}
+
+.verticalPanelNarrow {
+	.sidePanel;
+}
+
+[data-id=toolbuttons] {
+    background-color: @tertiaryColor;
+}
+
+// [data-control-class=MainTabs] {
+//     //background-color: @highlightColor;
+// 	//color: @invertedColor;
+// 	//fill: @invertedColor;
+// }
+
+[data-control-class=MainTabs] .tabsHeader[data-selected] {
+    background-color: @tabColor;
+    color: @invertedColor;
+	fill: @invertedColor;
+    border-bottom: none;
+    border-top: 1px solid @highlight2Color;
+    font-weight: bold;
+}
+
+.seekBar {
+    background-color: @textColor;
+    border-radius: 0px;
+}
+
+.seekBarBefore {
+    background-color: @highlight2Color;
+    border-radius: 0px;
+}
+
+.seekBarThumb {
+    border: 3px solid transparent !important;
+}
+
+.ticksOuter .tick {
+    background-color: @invertedSecondaryColor;
+    display:none;
+}
+
+[data-control-class=TracklistFilter] .lvHeaderSingleItem {
+    border-color: transparent !important; 
+}

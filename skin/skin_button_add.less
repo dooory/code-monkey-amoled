@@ -1,0 +1,46 @@
+.toolbuttonbase {
+    &:hover:not([data-disabled]), &:hover:not([data-disabled]) label, &:hover .ratingStar {
+        color: inherit;
+        fill: inherit;
+        -webkit-filter: inherit;
+        background-color: @hoverBgColor;
+    }
+    &:hover:not([data-disabled]) label[data-popuplabel] {
+        box-shadow: inherit;
+    }
+}
+.button[data-default] {    
+    color: @highlightColor;
+    box-shadow: none;
+}
+
+.button[data-default]:not([data-disabled]) {    
+    box-shadow: none;
+}
+
+.button:not([data-no-button]) {
+    background: @buttonBgColor;
+    .grindEdge;
+    border: 1px solid @buttonBorderColor;
+}
+
+.button[data-disabled] {
+    color: @buttonDisabledTextColor;
+    background-color: @buttonDisabledBgColor;
+    border: 1px solid @buttonDisabledBorderColor;
+}
+
+.button[data-disabled] label {
+	color: @buttonDisabledTextColor;
+}
+
+.buttonPushEffect {
+    color: @textColor;
+    background: @highlight2Color;
+    .grindEdge;
+    -webkit-transform: none;
+}
+
+.button:hover:not([data-disabled]):not([data-no-button]) {
+    border: 1px solid @highlight2Color;
+}

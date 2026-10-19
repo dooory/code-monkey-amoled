@@ -1,0 +1,15 @@
+.mainToolbar {
+	& .toolbutton:hover:not([data-disabled]), & .toolbutton:hover:not([data-disabled]) label, & .toolbutton:hover .ratingStar {
+	        color: @invertedSecondaryColor;
+	        fill: @invertedSecondaryColor;
+	        background-color: inherit;
+	}
+	// Colored line below main tab container
+	border-top: 1px solid @highlight2Color;
+	// Colored line below navigation and toolbar icon bar
+	border-bottom: 1px solid @borderColor;
+    }
+
+.toolbar hr{
+	border: none;
+}
