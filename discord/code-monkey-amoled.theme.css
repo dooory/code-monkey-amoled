@@ -200,6 +200,43 @@ body {
     box-shadow: inset 2px 0 0 var(--cm-highlight2);
 }
 
+/* Buttons: Discord's newer buttons are pills via their own radius token */
+:root {
+    --button-border-radius: var(--cm-radius) !important;
+    --button-border-radius-lg: var(--cm-radius) !important;
+}
+
+[data-mana-component="button"],
+[data-mana-component="text-button"] {
+    border-radius: var(--cm-radius) !important;
+}
+
+/* Toggles: Discord sets the track colors inline from JS and draws the knob as an SVG rect with an animated rx */
+[data-mana-component="switch"] {
+    border-radius: var(--cm-radius) !important;
+    background-color: var(--cm-border) !important;
+    border-color: var(--cm-button-border) !important;
+}
+
+label:hover > [data-mana-component="switch"] {
+    border-color: var(--cm-highlight2) !important;
+}
+
+label:has(input:checked) > [data-mana-component="switch"] {
+    background-color: var(--cm-highlight2) !important;
+    border-color: var(--cm-highlight2) !important;
+}
+
+label:has(input:checked):hover > [data-mana-component="switch"] {
+    background-color: var(--cm-highlight) !important;
+    border-color: var(--cm-highlight) !important;
+}
+
+[data-mana-component="switch"] rect {
+    rx: var(--cm-radius) !important;
+    ry: var(--cm-radius) !important;
+}
+
 /* Text selection */
 ::selection {
     background: var(--cm-selected);
