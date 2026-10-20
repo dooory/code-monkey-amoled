@@ -1,0 +1,11 @@
+/* Code Monkey AMOLED: Vivaldi UI font. Themes can't set fonts, so this is a UI modification.
+   Needs Inconsolata installed; falls back to Consolas. */
+
+#browser,
+#browser button,
+#browser input,
+#browser select,
+#browser textarea {
+    font-family: Inconsolata, Consolas, monospace !important;
+    letter-spacing: 0.6px;
+}

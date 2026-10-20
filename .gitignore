@@ -1,3 +1,4 @@
 *.vsix
 *.mmip
+*.zip
 node_modules/

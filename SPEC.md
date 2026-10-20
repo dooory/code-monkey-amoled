@@ -89,28 +89,28 @@ The full scope list is in `vscode/themes/code-monkey-amoled-color-theme.json` un
 
 ## Porting checklist
 
-How the existing ports map roles to surfaces. Fill in the same rows for a new app.
+How the existing ports map roles to surfaces. "Derived" means the app computes the shade from a base color, so it may fall outside the palette. Fill in the same rows for a new app.
 
-| Surface | MediaMonkey | VS Code | Discord |
-| --- | --- | --- | --- |
-| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) |
-| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` |
-| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) |
-| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` |
-| Hover | `hoverBg` | `hoverBg` | `hoverBg` |
-| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` |
-| Selection | `selected` | `selected` | `selected` |
-| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge |
-| Focus ring | `highlight2` border | `highlight2` | `highlight` |
-| Borders | `border` | `border` | `border`, `buttonBorder` for strong |
-| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track |
-| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover |
-| Links | `highlight` | `highlight` | `highlight` |
-| Font | bundled TTF | user setting (themes can't set fonts) | Google Fonts |
+| Surface | MediaMonkey | VS Code | Discord | Vivaldi |
+| --- | --- | --- | --- | --- |
+| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) | `base` (address bar, panels, window) |
+| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` | `base` |
+| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) | `tertiary` (tab bar, as accent) |
+| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` | derived from `base` |
+| Hover | `hoverBg` | `hoverBg` | `hoverBg` | derived from `base` |
+| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` | derived from `base` |
+| Selection | `selected` | `selected` | `selected` | `highlight2` |
+| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge | `base` tab on `tertiary` tab bar |
+| Focus ring | `highlight2` border | `highlight2` | `highlight` | `highlight2` |
+| Borders | `border` | `border` | `border`, `buttonBorder` for strong | derived from `base` |
+| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track | Vivaldi default |
+| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover | `highlight2` |
+| Links | `highlight` | `highlight` | `highlight` | n/a (web pages aren't themed) |
+| Font | bundled TTF | user setting (themes can't set fonts) | Google Fonts | UI CSS mod (local install) |
 
 Before calling a port done:
 
-1. Every UI color is in the palette (search the theme file for hex values and compare).
+1. Every UI color you set is in the palette (search the theme file for hex values and compare).
 2. Hover, active and selected states all differ from each other and from the resting state.
 3. Corners are square.
 4. Inconsolata loads, with Consolas as the fallback.

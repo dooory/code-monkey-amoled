@@ -7,6 +7,7 @@ A pure-black AMOLED take on the [Code Monkey](https://github.com/mmuffins/mediam
 | MediaMonkey 2024 | [`mediamonkey/`](mediamonkey/) | [README](mediamonkey/README.md) |
 | VS Code | [`vscode/`](vscode/) | [README](vscode/README.md) |
 | Discord (Equicord) | [`discord/`](discord/) | [README](discord/README.md) |
+| Vivaldi | [`vivaldi/`](vivaldi/) | [README](vivaldi/README.md) |
 
 ## Palette
 
