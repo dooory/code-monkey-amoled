@@ -4,7 +4,7 @@ A pure-black AMOLED color variant of the Code Monkey skin for MediaMonkey 2024. 
 
 ## Install
 
-Package this folder as a `.mmip` archive or install the supplied package through MediaMonkey's **Tools > Add-ons > Add** menu. After installation, select **Code Monkey AMOLED** under **Tools > Options > Skin**.
+Zip the *contents* of this folder (so `info.json` is at the root of the archive, not inside a `mediamonkey/` folder) and rename the zip to `.mmip`, or install the supplied package. Add it through MediaMonkey's **Tools > Add-ons > Add** menu, then select **Code Monkey AMOLED** under **Tools > Options > Skin**.
 
 The original Code Monkey 3.1.63 add-on is listed as compatible with MediaMonkey 2024 and versions 5.0.3–5.9. This derivative preserves its skin/add-on structure. It has not been verified in a live MediaMonkey installation.
 
