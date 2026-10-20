@@ -4,6 +4,10 @@ A pure-black Vivaldi theme based on the Code Monkey AMOLED MediaMonkey skin: bla
 
 ## Install
 
+Open the theme on [themes.vivaldi.net](https://themes.vivaldi.net/themes/PKbv8KkElr3) in Vivaldi and install it from there.
+
+### From this folder
+
 1. Zip `settings.json` on its own (it must be at the root of the zip):
 
    ```powershell
