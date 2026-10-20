@@ -8,6 +8,7 @@ A pure-black AMOLED take on the [Code Monkey](https://github.com/mmuffins/mediam
 | VS Code | [`vscode/`](vscode/) | [README](vscode/README.md) |
 | Discord (Equicord) | [`discord/`](discord/) | [README](discord/README.md) |
 | Vivaldi | [`vivaldi/`](vivaldi/) | [README](vivaldi/README.md) |
+| Roblox Studio (Roblox ModLoader) | [`rml/`](rml/) | [README](rml/README.md) |
 
 ## Palette
 
