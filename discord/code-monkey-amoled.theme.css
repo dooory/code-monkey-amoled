@@ -1,0 +1,207 @@
+/**
+ * @name Code Monkey AMOLED
+ * @author mmuffins (original Code Monkey skin); AMOLED Discord port
+ * @description Pure-black AMOLED Discord theme based on the Code Monkey AMOLED MediaMonkey skin: black and near-black surfaces, blue highlights, square corners and the Inconsolata font.
+ * @version 1.0.0
+ */
+
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap");
+
+/* Settings: mirror the skin's customizable options. */
+:root {
+    --cm-highlight: #1c97ea;      /* Highlight color */
+    --cm-highlight2: #007acc;     /* Secondary highlight color */
+    --cm-selected: #264f78;       /* Selection color */
+    --cm-font: "Inconsolata", Consolas, monospace;
+    --cm-letter-spacing: 0.3px;
+    --cm-radius: 0px;             /* Code Monkey uses square edges; raise for rounded corners */
+}
+
+/* Palette from skin/skin_base_add.less */
+:root {
+    --cm-base: #000000;
+    --cm-secondary: #080808;
+    --cm-tertiary: #111111;
+    --cm-hover-bg: #181818;
+    --cm-hover-bg2: #202020;
+    --cm-contrast: #454545;
+    --cm-border: #303030;
+    --cm-button-border: #424242;
+    --cm-text: #dcdcdc;
+    --cm-text-strong: #ffffff;
+    --cm-text-muted: #999999;
+    --cm-text-disabled: #656565;
+}
+
+.theme-dark,
+.theme-darker,
+.theme-midnight,
+.visual-refresh.theme-dark,
+.visual-refresh.theme-darker,
+.visual-refresh.theme-midnight,
+.visual-refresh .theme-dark,
+.visual-refresh .theme-darker,
+.visual-refresh .theme-midnight {
+    /* Surfaces */
+    --background-base-lowest: var(--cm-base) !important;
+    --background-base-lower: var(--cm-base) !important;
+    --background-base-low: var(--cm-secondary) !important;
+    --background-surface-high: var(--cm-tertiary) !important;
+    --background-surface-higher: var(--cm-tertiary) !important;
+    --background-surface-highest: var(--cm-hover-bg) !important;
+    --background-primary: var(--cm-base) !important;
+    --background-secondary: var(--cm-secondary) !important;
+    --background-secondary-alt: var(--cm-tertiary) !important;
+    --background-tertiary: var(--cm-base) !important;
+    --background-floating: var(--cm-tertiary) !important;
+    --background-nested-floating: var(--cm-tertiary) !important;
+    --background-accent: var(--cm-border) !important;
+    --background-message-hover: var(--cm-secondary) !important;
+    --background-message-highlight: color-mix(in srgb, var(--cm-selected) 25%, transparent) !important;
+    --background-message-highlight-hover: color-mix(in srgb, var(--cm-selected) 35%, transparent) !important;
+    --background-mentioned: color-mix(in srgb, var(--cm-highlight2) 12%, transparent) !important;
+    --background-mentioned-hover: color-mix(in srgb, var(--cm-highlight2) 18%, transparent) !important;
+    --app-frame-background: var(--cm-base) !important;
+    --chat-background-default: var(--cm-base) !important;
+    --home-background: var(--cm-base) !important;
+    --modal-background: var(--cm-secondary) !important;
+    --modal-footer-background: var(--cm-tertiary) !important;
+    --input-background: var(--cm-tertiary) !important;
+    --input-background-default: var(--cm-tertiary) !important;
+    --channeltextarea-background: var(--cm-tertiary) !important;
+    --chat-input-container-background: var(--cm-tertiary) !important;
+    --card-primary-bg: var(--cm-secondary) !important;
+    --card-secondary-bg: var(--cm-tertiary) !important;
+    --deprecated-card-bg: var(--cm-secondary) !important;
+    --deprecated-card-editable-bg: var(--cm-tertiary) !important;
+    --bg-base-primary: var(--cm-base) !important;
+    --bg-base-secondary: var(--cm-secondary) !important;
+    --bg-base-tertiary: var(--cm-base) !important;
+    --bg-surface-raised: var(--cm-tertiary) !important;
+    --bg-surface-overlay: var(--cm-tertiary) !important;
+    --bg-overlay-1: var(--cm-base) !important;
+    --bg-overlay-2: var(--cm-secondary) !important;
+    --bg-overlay-3: var(--cm-base) !important;
+    --bg-overlay-4: var(--cm-tertiary) !important;
+    --bg-overlay-5: var(--cm-tertiary) !important;
+    --bg-overlay-6: var(--cm-tertiary) !important;
+    --bg-overlay-floating: var(--cm-tertiary) !important;
+    --bg-overlay-chat: var(--cm-base) !important;
+    --bg-overlay-app-frame: var(--cm-base) !important;
+    --bg-overlay-selected: var(--cm-selected) !important;
+    --bg-overlay-hover: var(--cm-hover-bg) !important;
+    --bg-overlay-active: var(--cm-hover-bg2) !important;
+
+    /* Hover / selection: list rows behave like the skin's listviews */
+    --background-mod-subtle: var(--cm-hover-bg) !important;
+    --background-mod-normal: var(--cm-hover-bg2) !important;
+    --background-mod-strong: var(--cm-border) !important;
+    --background-modifier-hover: var(--cm-hover-bg) !important;
+    --background-modifier-active: var(--cm-hover-bg2) !important;
+    --background-modifier-selected: var(--cm-selected) !important;
+    --background-modifier-accent: var(--cm-border) !important;
+    --interactive-background-hover: var(--cm-hover-bg) !important;
+    --interactive-background-active: var(--cm-hover-bg2) !important;
+    --interactive-background-selected: var(--cm-selected) !important;
+
+    /* Borders */
+    --border-faint: var(--cm-border) !important;
+    --border-subtle: var(--cm-border) !important;
+    --border-normal: var(--cm-border) !important;
+    --border-strong: var(--cm-button-border) !important;
+
+    /* Text */
+    --text-default: var(--cm-text) !important;
+    --text-normal: var(--cm-text) !important;
+    --text-strong: var(--cm-text-strong) !important;
+    --text-subtle: var(--cm-text-muted) !important;
+    --text-muted: var(--cm-text-muted) !important;
+    --text-secondary: var(--cm-text-muted) !important;
+    --text-tertiary: var(--cm-text-disabled) !important;
+    --header-primary: var(--cm-text-strong) !important;
+    --header-secondary: var(--cm-text-muted) !important;
+    --text-link: var(--cm-highlight) !important;
+    --text-brand: var(--cm-highlight) !important;
+    --interactive-normal: var(--cm-text-muted) !important;
+    --interactive-icon-default: var(--cm-text-muted) !important;
+    --interactive-hover: var(--cm-text) !important;
+    --interactive-icon-hover: var(--cm-text) !important;
+    --interactive-active: var(--cm-text-strong) !important;
+    --interactive-icon-active: var(--cm-text-strong) !important;
+    --interactive-muted: var(--cm-text-disabled) !important;
+    --interactive-text-default: var(--cm-text-muted) !important;
+    --interactive-text-hover: var(--cm-text) !important;
+    --interactive-text-active: var(--cm-text-strong) !important;
+    --channels-default: var(--cm-text-muted) !important;
+    --channel-icon: var(--cm-text-muted) !important;
+
+    /* Brand / accents */
+    --brand-360: var(--cm-highlight) !important;
+    --brand-500: var(--cm-highlight2) !important;
+    --brand-560: var(--cm-highlight) !important;
+    --brand-600: var(--cm-highlight2) !important;
+    --brand-experiment: var(--cm-highlight2) !important;
+    --brand-experiment-560: var(--cm-highlight) !important;
+    --control-brand-foreground: var(--cm-highlight) !important;
+    --control-brand-foreground-new: var(--cm-highlight) !important;
+    --button-filled-brand-background: var(--cm-highlight2) !important;
+    --button-filled-brand-background-hover: var(--cm-highlight) !important;
+    --button-filled-brand-background-active: var(--cm-highlight2) !important;
+    --button-filled-brand-text: var(--cm-text-strong) !important;
+    --button-secondary-background: var(--cm-border) !important;
+    --button-secondary-background-hover: var(--cm-button-border) !important;
+    --button-secondary-background-active: var(--cm-contrast) !important;
+    --mention-foreground: var(--cm-text-strong) !important;
+    --mention-background: color-mix(in srgb, var(--cm-highlight2) 30%, transparent) !important;
+    --info-help-foreground: var(--cm-highlight) !important;
+    --focus-primary: var(--cm-highlight) !important;
+
+    /* Scrollbars: square contrast thumb on a dark track */
+    --scrollbar-thin-thumb: var(--cm-contrast) !important;
+    --scrollbar-thin-track: transparent !important;
+    --scrollbar-auto-thumb: var(--cm-contrast) !important;
+    --scrollbar-auto-track: var(--cm-tertiary) !important;
+    --scrollbar-auto-scrollbar-color-thumb: var(--cm-contrast) !important;
+    --scrollbar-auto-scrollbar-color-track: var(--cm-tertiary) !important;
+
+    /* Shapes */
+    --radius-xs: var(--cm-radius) !important;
+    --radius-sm: var(--cm-radius) !important;
+    --radius-md: var(--cm-radius) !important;
+    --radius-lg: var(--cm-radius) !important;
+    --radius-xl: var(--cm-radius) !important;
+
+    /* No drop shadows on a pure-black UI */
+    --elevation-low: none !important;
+    --elevation-medium: 0 0 0 1px var(--cm-border) !important;
+    --elevation-high: 0 0 0 1px var(--cm-border) !important;
+    --elevation-stroke: 0 0 0 1px var(--cm-border) !important;
+}
+
+/* Font */
+:root {
+    --font-primary: var(--cm-font) !important;
+    --font-display: var(--cm-font) !important;
+    --font-headline: var(--cm-font) !important;
+    --font-code: var(--cm-font) !important;
+}
+
+body {
+    font-family: var(--cm-font);
+    letter-spacing: var(--cm-letter-spacing);
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: var(--cm-radius) !important;
+}
+
+/* Selected channel: the skin marks the active tab with a highlight edge */
+[class*="modeSelected"] [class*="link_"] {
+    box-shadow: inset 2px 0 0 var(--cm-highlight2);
+}
+
+/* Text selection */
+::selection {
+    background: var(--cm-selected);
+    color: var(--cm-text-strong);
+}
