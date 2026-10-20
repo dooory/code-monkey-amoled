@@ -1,0 +1,30 @@
+{
+  "name": "code-monkey-amoled",
+  "displayName": "Code Monkey AMOLED",
+  "description": "Pure-black AMOLED dark theme based on the Code Monkey AMOLED skin for MediaMonkey 2024.",
+  "version": "1.0.0",
+  "publisher": "dory",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "amoled",
+    "black",
+    "dark",
+    "mediamonkey",
+    "code monkey"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Code Monkey AMOLED",
+        "uiTheme": "vs-dark",
+        "path": "./themes/code-monkey-amoled-color-theme.json"
+      }
+    ]
+  }
+}
