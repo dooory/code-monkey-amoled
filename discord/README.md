@@ -4,19 +4,26 @@ A pure-black Discord theme for Equicord, ported from the Code Monkey AMOLED Medi
 
 ## Install
 
-1. Run the installer, which finds Equicord's themes folder and copies the theme there:
+1. In Discord, open **Settings > Equicord > Themes > Online Themes**.
+2. Paste this link and save:
 
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\install.ps1
    ```
-
-   Or copy `code-monkey-amoled.theme.css` into the folder by hand (**Settings > Equicord > Themes > Open Themes Folder**).
-2. Enable **Code Monkey AMOLED** in the Themes tab.
+   https://raw.githubusercontent.com/dooory/code-monkey-amoled/main/discord/code-monkey-amoled.theme.css
+   ```
 3. Set Discord's appearance to **Dark** (or Midnight).
+
+The theme loads from this repository, so updates pushed to `main` apply the next time Discord starts.
 
 ## Customize
 
-Edit the variables at the top of the theme:
+Override the theme's variables in **Settings > Equicord > Themes > Edit QuickCSS**:
+
+```css
+:root {
+    --cm-highlight: #1c97ea !important;
+    --cm-letter-spacing: 0.3px !important;
+}
+```
 
 | Variable | Default | Purpose |
 | --- | --- | --- |
