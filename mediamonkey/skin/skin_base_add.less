@@ -50,15 +50,29 @@
     src: url("/skin/fonts/Inconsolata-VariableFont_wdth,wght.ttf") format("truetype");
 }
 
+@font-face {
+    font-family: 'Inconsolata Nerd Font Mono';
+    src: local('Inconsolata Nerd Font Mono Regular'), url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.4.0/patched-fonts/Inconsolata/InconsolataNerdFontMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Inconsolata Nerd Font Mono';
+    src: local('Inconsolata Nerd Font Mono Bold'), url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.4.0/patched-fonts/Inconsolata/InconsolataNerdFontMono-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+}
+
 @baseFontSize: 13px;
-@selectedFontFamily: Inconsolata;
-@fontWeight: 450;
+@selectedFontFamily: 'Inconsolata Nerd Font Mono';
+@fontWeight: 400;
 @fontSpacing: 0.6px;
-@fontStretch: 103%;
+@fontStretch: 100%;
 @fontLineSize: @units1_1;
 
 body {
-    font-family: @selectedFontFamily, sans-serif;
+    font-family: @selectedFontFamily, Inconsolata, Consolas, monospace;
     font-weight: @fontWeight;
     letter-spacing: @fontSpacing;
     font-stretch: @fontStretch;

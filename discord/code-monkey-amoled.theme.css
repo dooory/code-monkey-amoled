@@ -1,18 +1,34 @@
 /**
  * @name Code Monkey AMOLED
  * @author mmuffins (original Code Monkey skin); AMOLED Discord port
- * @description Pure-black AMOLED Discord theme based on the Code Monkey AMOLED MediaMonkey skin: black and near-black surfaces, blue highlights, square corners and the Inconsolata font.
+ * @description Pure-black AMOLED Discord theme based on the Code Monkey AMOLED MediaMonkey skin: black and near-black surfaces, blue highlights, square corners and Inconsolata Nerd Font Mono.
  * @version 1.0.0
  */
 
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&display=swap");
+
+@font-face {
+    font-family: "Inconsolata Nerd Font Mono";
+    src: local("Inconsolata Nerd Font Mono Regular"), url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.4.0/patched-fonts/Inconsolata/InconsolataNerdFontMono-Regular.ttf") format("truetype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "Inconsolata Nerd Font Mono";
+    src: local("Inconsolata Nerd Font Mono Bold"), url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/v3.4.0/patched-fonts/Inconsolata/InconsolataNerdFontMono-Bold.ttf") format("truetype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
 
 /* Settings: mirror the skin's customizable options. */
 :root {
     --cm-highlight: #1c97ea;      /* Highlight color */
     --cm-highlight2: #007acc;     /* Secondary highlight color */
     --cm-selected: #264f78;       /* Selection color */
-    --cm-font: "Inconsolata", Consolas, monospace;
+    --cm-font: "Inconsolata Nerd Font Mono", "Inconsolata", Consolas, monospace;
     --cm-letter-spacing: 0.3px;
     --cm-radius: 0px;             /* Code Monkey uses square edges; raise for rounded corners */
 }

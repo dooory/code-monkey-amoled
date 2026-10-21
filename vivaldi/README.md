@@ -20,7 +20,7 @@ Open the theme on [themes.vivaldi.net](https://themes.vivaldi.net/themes/PKbv8Kk
 
 Themes can't change Vivaldi's UI font. To use the skin's font:
 
-1. Install [Inconsolata](https://fonts.google.com/specimen/Inconsolata).
+1. [Install Inconsolata Nerd Font Mono](../FONTS.md).
 2. Open `vivaldi://experiments` and turn on **Allow for using CSS modifications**.
 3. In **Settings > Appearance > Custom UI Modifications**, choose this folder (or any folder containing `code-monkey-amoled.css`), then restart Vivaldi.
 

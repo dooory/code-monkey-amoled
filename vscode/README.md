@@ -19,14 +19,17 @@ To try it without installing, open this folder in VS Code, press F5, and pick th
 
 ## Matching the skin's font
 
-Themes can't set fonts. To match the skin, install [Inconsolata](https://fonts.google.com/specimen/Inconsolata) and add this to your settings:
+Themes can't set fonts. [Install Inconsolata Nerd Font Mono](../FONTS.md) and add this to your settings for the editor and integrated terminal:
 
 ```json
-"editor.fontFamily": "Inconsolata, Consolas, monospace",
+"editor.fontFamily": "'Inconsolata Nerd Font Mono', Inconsolata, Consolas, monospace",
 "editor.fontSize": 13,
-"editor.fontWeight": "450",
-"editor.letterSpacing": 0.6
+"editor.fontWeight": "400",
+"editor.letterSpacing": 0.6,
+"terminal.integrated.fontFamily": "'Inconsolata Nerd Font Mono', Inconsolata, Consolas, monospace"
 ```
+
+The workbench UI keeps VS Code's font. Inconsolata and Consolas are fallbacks without the full Nerd Font symbol set.
 
 ## Changing colors
 

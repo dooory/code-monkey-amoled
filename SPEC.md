@@ -49,14 +49,16 @@ The skin's source keeps a commented-out Visual Studio 2022 purple alternative (`
 
 | Property | Value |
 | --- | --- |
-| Font | Inconsolata |
-| Fallbacks | Consolas, monospace |
+| Font | Inconsolata Nerd Font Mono |
+| Fallbacks | Inconsolata, Consolas, monospace |
 | Base size | 13px |
-| Weight | 450 |
+| Weight | 400, bold 700 |
 | Letter spacing | 0.6px (Discord: 0.3px, see below) |
-| Width (`font-stretch`) | 103% |
+| Width (`font-stretch`) | 100%, natural width |
 
-Inconsolata is a variable font (OFL, `mediamonkey/skin/fonts/OFL.txt`). Bundle the TTF when the app can load local fonts; otherwise load it from Google Fonts (`family=Inconsolata:wdth,wght@50..200,200..900`).
+Inconsolata Nerd Font Mono is the shared font. The repository does not bundle it; users install it from the Nerd Fonts release. The patched fonts are static, so ports use weight 400 and natural width instead of requesting weight 450 and width 103 from the original variable font. See [FONTS.md](FONTS.md) for installation, source, license and app limitations.
+
+MediaMonkey and Discord prefer a local installation and otherwise download the pinned Nerd Fonts release. Discord falls back to the original Inconsolata from Google Fonts; MediaMonkey falls back to its bundled variable Inconsolata. Other ports select the installed font through their supported settings.
 
 0.6px is the default. Discord uses 0.3px on purpose; a port can use a different value when the app calls for it.
 
@@ -68,7 +70,7 @@ Inconsolata is a variable font (OFL, `mediamonkey/skin/fonts/OFL.txt`). Bundle t
 
 ## Syntax colors
 
-Code-editor ports only (VS Code today). Taken from VS Code's Dark+ theme, which uses the same Visual Studio palette as the skin. Plain code text uses `text` (`#dcdcdc`).
+Code-editor syntax and terminal ANSI output may use the colors from VS Code's Dark+ theme, which uses the same Visual Studio palette as the skin. Plain text uses `text` (`#dcdcdc`). These output colors are separate from the UI palette above.
 
 | Token | Hex |
 | --- | --- |
@@ -87,31 +89,56 @@ Code-editor ports only (VS Code today). Taken from VS Code's Dark+ theme, which 
 
 The full scope list is in `vscode/themes/code-monkey-amoled-color-theme.json` under `tokenColors`.
 
+### Windows Terminal mapping
+
+The port in `windows-terminal/settings.json` sets both a terminal color scheme and an application theme. Its ANSI colors come from the VS Code port, while its surfaces use the UI palette.
+
+| Surface | Windows Terminal |
+| --- | --- |
+| Main background | `base`, fully opaque, no background image or acrylic |
+| Text / cursor | `text` |
+| Selection | `selected` |
+| Tab row | `secondary` |
+| Active / inactive tab | `tertiary` / `base` |
+| Focused / unfocused window frame | `highlight2` / `border`, Windows 11 only |
+| Controls, hover, scrollbar, corners | Native dark appearance, not individually configurable by custom themes |
+| Font | Locally installed Inconsolata Nerd Font Mono, Inconsolata / Consolas fallback, 9.75pt, weight 400, native cell spacing |
+
+ANSI blue and bright blue use `highlight2` and `highlight`. The other ANSI slots use the existing syntax colors, with `#646695` from the full VS Code token list for normal purple. Programs can supply their own RGB output colors. The scheme's blue, bright blue and selection entries expose the three accents; the application theme sets its window frame separately.
+
+### CLI ports
+
+The Codex CLI port in `codex-cli/` uses a `.tmTheme` file for syntax highlighting, adapted from the VS Code port's TextMate rules. It cannot set the rest of Codex's interface colors. The host terminal supplies the black background, font and normal selection colors.
+
+The Claude Code port in `claude-code/` uses the supported custom JSON theme format. Message backgrounds, borders, accents and fullscreen selection use the UI palette. Semantic status colors and agent labels use the Visual Studio syntax palette so errors, warnings and success remain distinct. Diff backgrounds use separate near-black shades and grey word highlights. Unspecified tokens inherit the dark preset, including code syntax highlighting.
+
+Both ports use the Windows Terminal port for the terminal's appearance. Neither theme sets fonts or window corners. Installation paths and supported surfaces are documented in each port's README.
+
 ## Porting checklist
 
 How the existing ports map roles to surfaces. "Derived" means the app computes the shade from a base color, so it may fall outside the palette. Fill in the same rows for a new app.
 
-| Surface | MediaMonkey | VS Code | Discord | Vivaldi |
-| --- | --- | --- | --- | --- |
-| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) | `base` (address bar, panels, window) |
-| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` | `base` |
-| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) | `tertiary` (tab bar, as accent) |
-| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` | derived from `base` |
-| Hover | `hoverBg` | `hoverBg` | `hoverBg` | derived from `base` |
-| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` | derived from `base` |
-| Selection | `selected` | `selected` | `selected` | `highlight2` |
-| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge | `base` tab on `tertiary` tab bar |
-| Focus ring | `highlight2` border | `highlight2` | `highlight` | `highlight2` |
-| Borders | `border` | `border` | `border`, `buttonBorder` for strong | derived from `base` |
-| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track | Vivaldi default |
-| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover | `highlight2` |
-| Links | `highlight` | `highlight` | `highlight` | n/a (web pages aren't themed) |
-| Font | bundled TTF | user setting (themes can't set fonts) | Google Fonts | UI CSS mod (local install) |
+| Surface | MediaMonkey | VS Code | Discord | Vivaldi | Obsidian |
+| --- | --- | --- | --- | --- | --- |
+| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) | `base` (address bar, panels, window) | `base` (editor) |
+| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` | `base` | `secondary` (side bars, ribbon, tab bar) |
+| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) | `tertiary` (tab bar, as accent) | `tertiary` |
+| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` | derived from `base` | `tertiary` |
+| Hover | `hoverBg` | `hoverBg` | `hoverBg` | derived from `base` | `hoverBg` |
+| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` | derived from `base` | `hoverBg2` |
+| Selection | `selected` | `selected` | `selected` | `highlight2` | `selected` |
+| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge | `base` tab on `tertiary` tab bar | `tertiary` tab with `highlight2` top edge; `selected` file with `highlight2` left edge |
+| Focus ring | `highlight2` border | `highlight2` | `highlight` | `highlight2` | `highlight2` |
+| Borders | `border` | `border` | `border`, `buttonBorder` for strong | derived from `base` | `border`, `buttonBorder` on hover |
+| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track | Vivaldi default | `contrast` thumb on `tertiary` track |
+| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover | `highlight2` | `border` fill, `buttonBorder` on hover; accent: `highlight2`, `highlight` on hover |
+| Links | `highlight` | `highlight` | `highlight` | n/a (web pages aren't themed) | `highlight` |
+| Font | local Nerd Font or pinned download | user setting (themes can't set fonts) | local Nerd Font or pinned download | UI CSS mod (local install) | theme font variables (local install) |
 
 Before calling a port done:
 
 1. Every UI color you set is in the palette (search the theme file for hex values and compare).
 2. Hover, active and selected states all differ from each other and from the resting state.
 3. Corners are square.
-4. Inconsolata loads, with Consolas as the fallback.
+4. Inconsolata Nerd Font Mono loads where supported, with Inconsolata and Consolas as fallbacks. Document surfaces whose fonts the app does not let a theme change.
 5. The three accent colors can be changed in one place.

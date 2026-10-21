@@ -1,0 +1,4 @@
+# Merge into your existing [tui] table in $CODEX_HOME/config.toml.
+# Copy code-monkey-amoled.tmTheme into $CODEX_HOME/themes/ first.
+[tui]
+theme = "code-monkey-amoled"

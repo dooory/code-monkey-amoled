@@ -1,0 +1,213 @@
+/* Code Monkey AMOLED for Obsidian, based on the Code Monkey AMOLED MediaMonkey skin. */
+
+/* Settings: override these in a CSS snippet (see README). */
+.theme-dark {
+    --cm-highlight: #1c97ea;      /* Highlight color */
+    --cm-highlight2: #007acc;     /* Secondary highlight color */
+    --cm-selected: #264f78;       /* Selection color */
+    --cm-font: "Inconsolata Nerd Font Mono", "Inconsolata", Consolas, monospace;
+    --cm-letter-spacing: 0.6px;
+    --cm-radius: 0px;             /* Code Monkey uses square edges; raise for rounded corners */
+}
+
+/* Palette from mediamonkey/skin/skin_base_add.less */
+.theme-dark {
+    --cm-base: #000000;
+    --cm-secondary: #080808;
+    --cm-tertiary: #111111;
+    --cm-hover-bg: #181818;
+    --cm-hover-bg2: #202020;
+    --cm-contrast: #454545;
+    --cm-border: #303030;
+    --cm-button-border: #424242;
+    --cm-text: #dcdcdc;
+    --cm-text-strong: #ffffff;
+    --cm-text-muted: #999999;
+    --cm-text-disabled: #656565;
+}
+
+.theme-dark {
+    /* Surfaces */
+    --background-primary: var(--cm-base);
+    --background-primary-alt: var(--cm-secondary);
+    --background-secondary: var(--cm-secondary);
+    --background-secondary-alt: var(--cm-tertiary);
+    --titlebar-background: var(--cm-tertiary);
+    --titlebar-background-focused: var(--cm-tertiary);
+    --titlebar-text-color: var(--cm-text-muted);
+    --titlebar-text-color-focused: var(--cm-text-muted);
+    --titlebar-border-color: var(--cm-border);
+    --ribbon-background: var(--cm-secondary);
+    --ribbon-background-collapsed: var(--cm-secondary);
+    --status-bar-background: var(--cm-tertiary);
+    --status-bar-border-color: var(--cm-border);
+    --status-bar-text-color: var(--cm-text-muted);
+    --modal-background: var(--cm-secondary);
+    --modal-border-color: var(--cm-border);
+    --menu-background: var(--cm-tertiary);
+    --menu-border-color: var(--cm-border);
+    --prompt-border-color: var(--cm-border);
+    --code-background: var(--cm-tertiary);
+    --table-header-background: var(--cm-tertiary);
+    --table-header-background-hover: var(--cm-hover-bg);
+
+    /* Tabs: active tab is tertiary with a highlight2 top edge (see below) */
+    --tab-container-background: var(--cm-secondary);
+    --tab-background-active: var(--cm-tertiary);
+    --tab-text-color: var(--cm-text-muted);
+    --tab-text-color-active: var(--cm-text);
+    --tab-text-color-focused: var(--cm-text-muted);
+    --tab-text-color-focused-active: var(--cm-text-strong);
+    --tab-text-color-focused-active-current: var(--cm-text-strong);
+    --tab-outline-color: var(--cm-border);
+    --tab-divider-color: var(--cm-border);
+    --tab-curve: 0px;
+
+    /* Hover / pressed / selected */
+    --background-modifier-hover: var(--cm-hover-bg);
+    --background-modifier-active-hover: var(--cm-hover-bg2);
+    --nav-item-background-hover: var(--cm-hover-bg);
+    --nav-item-background-active: var(--cm-selected);
+    --nav-item-background-selected: var(--cm-selected);
+    --nav-item-color: var(--cm-text-muted);
+    --nav-item-color-hover: var(--cm-text);
+    --nav-item-color-active: var(--cm-text-strong);
+    --nav-item-color-selected: var(--cm-text-strong);
+    --text-selection: var(--cm-selected);
+    --text-highlight-bg: color-mix(in srgb, var(--cm-highlight2) 40%, transparent);
+    --text-highlight-bg-active: color-mix(in srgb, var(--cm-highlight) 40%, transparent);
+
+    /* Borders and inputs */
+    --background-modifier-border: var(--cm-border);
+    --background-modifier-border-hover: var(--cm-button-border);
+    --background-modifier-border-focus: var(--cm-highlight2);
+    --background-modifier-form-field: var(--cm-tertiary);
+    --divider-color: var(--cm-border);
+    --divider-color-hover: var(--cm-highlight2);
+    --hr-color: var(--cm-border);
+    --table-border-color: var(--cm-border);
+    --indentation-guide-color: var(--cm-border);
+    --indentation-guide-color-active: var(--cm-contrast);
+    --input-shadow: inset 0 0 0 1px var(--cm-button-border);
+    --input-shadow-hover: inset 0 0 0 1px var(--cm-highlight2);
+
+    /* Text */
+    --text-normal: var(--cm-text);
+    --text-muted: var(--cm-text-muted);
+    --text-faint: var(--cm-text-disabled);
+    --text-on-accent: var(--cm-text-strong);
+    --text-on-accent-inverted: var(--cm-text-strong);
+    --text-accent: var(--cm-highlight);
+    --text-accent-hover: var(--cm-highlight);
+    --h1-color: var(--cm-text-strong);
+    --h2-color: var(--cm-text-strong);
+    --h3-color: var(--cm-text-strong);
+    --h4-color: var(--cm-text-strong);
+    --h5-color: var(--cm-text-strong);
+    --h6-color: var(--cm-text-strong);
+    --bold-color: var(--cm-text-strong);
+    --icon-color: var(--cm-text-muted);
+    --icon-color-hover: var(--cm-text);
+    --icon-color-active: var(--cm-highlight);
+    --icon-color-focused: var(--cm-text-strong);
+    --caret-color: var(--cm-text);
+
+    /* Accents: these replace the Appearance > Accent color setting */
+    --color-accent: var(--cm-highlight2);
+    --color-accent-1: var(--cm-highlight2);
+    --color-accent-2: var(--cm-highlight);
+    --interactive-normal: var(--cm-border);
+    --interactive-hover: var(--cm-button-border);
+    --interactive-accent: var(--cm-highlight2);
+    --interactive-accent-hover: var(--cm-highlight);
+    --link-color: var(--cm-highlight);
+    --link-color-hover: var(--cm-highlight);
+    --link-external-color: var(--cm-highlight);
+    --link-external-color-hover: var(--cm-highlight);
+    --link-unresolved-color: var(--cm-highlight);
+    --tag-color: var(--cm-highlight);
+    --tag-color-hover: var(--cm-highlight);
+    --tag-background: color-mix(in srgb, var(--cm-highlight2) 15%, transparent);
+    --tag-background-hover: color-mix(in srgb, var(--cm-highlight2) 25%, transparent);
+    --blockquote-border-color: var(--cm-highlight2);
+    --checkbox-color: var(--cm-highlight2);
+    --checkbox-color-hover: var(--cm-highlight);
+    --checkbox-border-color: var(--cm-button-border);
+    --checkbox-border-color-hover: var(--cm-highlight2);
+    --checkbox-marker-color: var(--cm-text-strong);
+    --graph-line: var(--cm-border);
+    --graph-node: var(--cm-text-muted);
+    --graph-node-unresolved: var(--cm-text-disabled);
+    --graph-node-focused: var(--cm-highlight);
+    --graph-node-tag: var(--cm-highlight2);
+    --graph-node-attachment: var(--cm-text);
+
+    /* Scrollbars: contrast thumb on a tertiary track */
+    --scrollbar-bg: var(--cm-tertiary);
+    --scrollbar-thumb-bg: var(--cm-contrast);
+    --scrollbar-active-thumb-bg: var(--cm-text-disabled);
+
+    /* Code: VS Code Dark+ syntax colors */
+    --code-normal: var(--cm-text);
+    --code-comment: #6a9955;
+    --code-function: #dcdcaa;
+    --code-important: #c586c0;
+    --code-keyword: #569cd6;
+    --code-operator: var(--cm-text);
+    --code-property: #9cdcfe;
+    --code-punctuation: var(--cm-text);
+    --code-string: #ce9178;
+    --code-tag: #569cd6;
+    --code-value: #b5cea8;
+
+    /* Shapes */
+    --radius-s: var(--cm-radius);
+    --radius-m: var(--cm-radius);
+    --radius-l: var(--cm-radius);
+    --radius-xl: var(--cm-radius);
+    --tab-radius: var(--cm-radius);
+    --tab-radius-active: var(--cm-radius);
+    --input-radius: var(--cm-radius);
+    --button-radius: var(--cm-radius);
+    --checkbox-radius: var(--cm-radius);
+    --toggle-radius: var(--cm-radius);
+    --toggle-thumb-radius: var(--cm-radius);
+    --clickable-icon-radius: var(--cm-radius);
+    --callout-radius: var(--cm-radius);
+    --modal-radius: var(--cm-radius);
+    --menu-radius: var(--cm-radius);
+    --status-bar-radius: var(--cm-radius);
+    --image-radius: var(--cm-radius);
+    --tag-radius: var(--cm-radius);
+
+    /* No drop shadows on a pure-black UI */
+    --shadow-s: none;
+    --shadow-l: 0 0 0 1px var(--cm-border);
+
+    /* Font: fonts chosen in Settings > Appearance still take precedence */
+    --font-interface-theme: var(--cm-font);
+    --font-text-theme: var(--cm-font);
+    --font-monospace-theme: var(--cm-font);
+}
+
+body.theme-dark {
+    letter-spacing: var(--cm-letter-spacing);
+}
+
+/* Active tab and file: the skin marks them with a highlight edge */
+.theme-dark .workspace-tab-header.is-active {
+    box-shadow: inset 0 1px 0 var(--cm-highlight2);
+}
+
+.theme-dark .tree-item-self.is-active {
+    box-shadow: inset 2px 0 0 var(--cm-highlight2);
+}
+
+.theme-dark ::-webkit-scrollbar-thumb {
+    border-radius: var(--cm-radius);
+}
+
+.theme-dark ::selection {
+    background: var(--cm-selected);
+    color: var(--cm-text-strong);
+}

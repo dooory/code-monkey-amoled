@@ -1,0 +1,61 @@
+{
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "theme": "Code Monkey AMOLED",
+  "themes": [
+    {
+      "name": "Code Monkey AMOLED",
+      "tab": {
+        "background": "#111111",
+        "unfocusedBackground": "#000000"
+      },
+      "tabRow": {
+        "background": "#080808",
+        "unfocusedBackground": "#080808"
+      },
+      "window": {
+        "applicationTheme": "dark",
+        "useMica": false,
+        "frame": "#007acc",
+        "unfocusedFrame": "#303030"
+      }
+    }
+  ],
+  "schemes": [
+    {
+      "name": "Code Monkey AMOLED",
+      "background": "#000000",
+      "foreground": "#dcdcdc",
+      "cursorColor": "#dcdcdc",
+      "selectionBackground": "#264f78",
+      "black": "#000000",
+      "red": "#d16969",
+      "green": "#6a9955",
+      "yellow": "#d7ba7d",
+      "blue": "#007acc",
+      "purple": "#646695",
+      "cyan": "#4ec9b0",
+      "white": "#dcdcdc",
+      "brightBlack": "#656565",
+      "brightRed": "#f44747",
+      "brightGreen": "#b5cea8",
+      "brightYellow": "#dcdcaa",
+      "brightBlue": "#1c97ea",
+      "brightPurple": "#c586c0",
+      "brightCyan": "#9cdcfe",
+      "brightWhite": "#ffffff"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "colorScheme": "Code Monkey AMOLED",
+      "opacity": 100,
+      "useAcrylic": false,
+      "backgroundImage": null,
+      "font": {
+        "face": "Inconsolata Nerd Font Mono, Inconsolata, Consolas",
+        "size": 9.75,
+        "weight": 400
+      }
+    }
+  }
+}
