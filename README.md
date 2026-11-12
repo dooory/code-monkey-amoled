@@ -12,6 +12,7 @@ A pure-black AMOLED take on the [Code Monkey](https://github.com/mmuffins/mediam
 | Windows Terminal | [`windows-terminal/`](windows-terminal/) | [README](windows-terminal/README.md) |
 | Codex CLI | [`codex-cli/`](codex-cli/) | [README](codex-cli/README.md) |
 | Claude Code | [`claude-code/`](claude-code/) | [README](claude-code/README.md) |
+| T3 Code | [`t3-code/`](t3-code/) | [README](t3-code/README.md) |
 | Roblox Studio (Roblox ModLoader) | [`rml/`](rml/) | [README](rml/README.md) |
 
 ## Font

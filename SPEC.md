@@ -114,26 +114,30 @@ The Claude Code port in `claude-code/` uses the supported custom JSON theme form
 
 Both ports use the Windows Terminal port for the terminal's appearance. Neither theme sets fonts or window corners. Installation paths and supported surfaces are documented in each port's README.
 
+### T3 Code
+
+The port in `t3-code/` uses T3 Code's native theme file (`"version": 1`) and sets every one of its 61 color roles, so none inherit T3 Code's built-in palette. Status surfaces use `tertiary` with the Visual Studio error and warning colors as foregrounds, since the palette has no tinted surfaces. The format doesn't cover fonts, corner radius, code syntax colors or terminal ANSI colors. Users pick fonts in the app's appearance settings.
+
 ## Porting checklist
 
 How the existing ports map roles to surfaces. "Derived" means the app computes the shade from a base color, so it may fall outside the palette. Fill in the same rows for a new app.
 
-| Surface | MediaMonkey | VS Code | Discord | Vivaldi | Obsidian |
-| --- | --- | --- | --- | --- | --- |
-| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) | `base` (address bar, panels, window) | `base` (editor) |
-| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` | `base` | `secondary` (side bars, ribbon, tab bar) |
-| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) | `tertiary` (tab bar, as accent) | `tertiary` |
-| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` | derived from `base` | `tertiary` |
-| Hover | `hoverBg` | `hoverBg` | `hoverBg` | derived from `base` | `hoverBg` |
-| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` | derived from `base` | `hoverBg2` |
-| Selection | `selected` | `selected` | `selected` | `highlight2` | `selected` |
-| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge | `base` tab on `tertiary` tab bar | `tertiary` tab with `highlight2` top edge; `selected` file with `highlight2` left edge |
-| Focus ring | `highlight2` border | `highlight2` | `highlight` | `highlight2` | `highlight2` |
-| Borders | `border` | `border` | `border`, `buttonBorder` for strong | derived from `base` | `border`, `buttonBorder` on hover |
-| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track | Vivaldi default | `contrast` thumb on `tertiary` track |
-| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover | `highlight2` | `border` fill, `buttonBorder` on hover; accent: `highlight2`, `highlight` on hover |
-| Links | `highlight` | `highlight` | `highlight` | n/a (web pages aren't themed) | `highlight` |
-| Font | local Nerd Font or pinned download | user setting (themes can't set fonts) | local Nerd Font or pinned download | UI CSS mod (local install) | theme font variables (local install) |
+| Surface | MediaMonkey | VS Code | Discord | Vivaldi | Obsidian | T3 Code |
+| --- | --- | --- | --- | --- | --- | --- |
+| Main background | `base` | `base` (editor, panel, menus) | `base` (chat, app frame) | `base` (address bar, panels, window) | `base` (editor) | `base` (chat, terminal, window) |
+| Side bar | `secondary` | `secondary` (side bar, activity bar) | `secondary` | `base` | `secondary` (side bars, ribbon, tab bar) | `secondary` |
+| Header / title / status bar | `tertiary` | `tertiary` | `tertiary` (floating surfaces) | `tertiary` (tab bar, as accent) | `tertiary` | `tertiary` (toolbar) |
+| Inputs | `border` when focused or pressed | `hoverBg` | `tertiary` | derived from `base` | `tertiary` | `tertiary` (composer, sidebar controls), `buttonBorder` outline |
+| Hover | `hoverBg` | `hoverBg` | `hoverBg` | derived from `base` | `hoverBg` | `hoverBg` |
+| Pressed / active | `hoverBg2` | `hoverBg2` | `hoverBg2` | derived from `base` | `hoverBg2` | `hoverBg2` |
+| Selection | `selected` | `selected` | `selected` | `highlight2` | `selected` | `selected` |
+| Active tab or item | `highlight` border | `tertiary` fill, `highlight2` top edge | `highlight2` left edge | `base` tab on `tertiary` tab bar | `tertiary` tab with `highlight2` top edge; `selected` file with `highlight2` left edge | `selected` fill on the current thread (no edge) |
+| Focus ring | `highlight2` border | `highlight2` | `highlight` | `highlight2` | `highlight2` | `highlight2` |
+| Borders | `border` | `border` | `border`, `buttonBorder` for strong | derived from `base` | `border`, `buttonBorder` on hover | `border` |
+| Scrollbar | `contrast` thumb on `tertiary` track | `contrast` thumb (80% alpha) | `contrast` thumb on `tertiary` track | Vivaldi default | `contrast` thumb on `tertiary` track | `contrast` thumb in the terminal; T3 Code default elsewhere |
+| Button | `border` fill, `buttonBorder` edge, `highlight2` edge on hover, `highlight2` fill when pressed | `highlight2` fill, `highlight` on hover | brand: `highlight2`, `highlight` on hover; secondary: `border`, `buttonBorder` on hover | `highlight2` | `border` fill, `buttonBorder` on hover; accent: `highlight2`, `highlight` on hover | primary: `highlight2`, `highlight` on hover; secondary: `border` |
+| Links | `highlight` | `highlight` | `highlight` | n/a (web pages aren't themed) | `highlight` | T3 Code default (no link role) |
+| Font | local Nerd Font or pinned download | user setting (themes can't set fonts) | local Nerd Font or pinned download | UI CSS mod (local install) | theme font variables (local install) | user setting (themes can't set fonts) |
 
 Before calling a port done:
 
