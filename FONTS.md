@@ -20,6 +20,7 @@ Select the family **Inconsolata Nerd Font Mono** in app font settings. Inconsola
 | Discord | The theme uses the installed font first, then downloads it from the pinned Nerd Fonts release. It applies to UI and code text. |
 | Obsidian | The theme selects the installed font for the interface, notes and code. Fonts chosen in Obsidian's appearance settings take precedence. |
 | Vivaldi | The CSS UI modification selects the installed font. Browser themes alone cannot set fonts. Web pages keep their own fonts. |
+| Notepad++ | The theme sets the installed font as the editor font at 10pt, in **Default Style** and **Global override**. Notepad++ has no fallback list, so Windows substitutes another font when it is missing. Menus, dialogs and tabs keep the Windows UI font. |
 | T3 Code | Select the installed font for **Interface font** and **Monospace font** in **Settings > Appearance**. Theme files set colors only. |
 | Roblox Studio | Select the installed font in **File > Studio Settings > Script Editor > Font**. The mod changes colors, so its other panels keep their native fonts. |
 

@@ -13,11 +13,12 @@ A pure-black AMOLED take on the [Code Monkey](https://github.com/mmuffins/mediam
 | Codex CLI | [`codex-cli/`](codex-cli/) | [README](codex-cli/README.md) |
 | Claude Code | [`claude-code/`](claude-code/) | [README](claude-code/README.md) |
 | T3 Code | [`t3-code/`](t3-code/) | [README](t3-code/README.md) |
+| Notepad++ | [`notepad-plus-plus/`](notepad-plus-plus/) | [README](notepad-plus-plus/README.md) |
 | Roblox Studio (Roblox ModLoader) | [`rml/`](rml/) | [README](rml/README.md) |
 
 ## Font
 
-[Install Inconsolata Nerd Font Mono](FONTS.md) for matching text and Nerd Font symbols across the ports. MediaMonkey and Discord download it automatically when it is not installed. Other apps use the installed font through the settings described in their READMEs. VS Code and Roblox Studio support editor fonts separately from their UI fonts.
+[Install Inconsolata Nerd Font Mono](FONTS.md) for matching text and Nerd Font symbols across the ports. MediaMonkey and Discord download it automatically when it is not installed. Other apps use the installed font through the settings described in their READMEs. VS Code, Notepad++ and Roblox Studio support editor fonts separately from their UI fonts.
 
 ## Palette
 

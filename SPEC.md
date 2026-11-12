@@ -118,6 +118,25 @@ Both ports use the Windows Terminal port for the terminal's appearance. Neither 
 
 The port in `t3-code/` uses T3 Code's native theme file (`"version": 1`) and sets every one of its 61 color roles, so none inherit T3 Code's built-in palette. Status surfaces use `tertiary` with the Visual Studio error and warning colors as foregrounds, since the palette has no tinted surfaces. The format doesn't cover fonts, corner radius, code syntax colors or terminal ANSI colors. Users pick fonts in the app's appearance settings.
 
+### Notepad++
+
+The port in `notepad-plus-plus/` is a Notepad++ theme file generated from Notepad++'s `stylers.model.xml` by `notepad-plus-plus/generate.py`. It keeps every lexer, style ID and keyword class from the model and replaces only colors and fonts. Syntax colors use the Visual Studio palette above. ANSI escape sequences and the error list use the Windows Terminal mapping.
+
+| Surface | Notepad++ |
+| --- | --- |
+| Editor, margins, inactive tabs | `base` |
+| Current line | `tertiary` |
+| Selection | `selected`; `textStrong` text when **Apply custom color to selected text foreground** is on |
+| Line numbers, fold markers | `textMuted` |
+| Indent guides, edge line, unfocused active-tab bar | `border` |
+| Whitespace and EOL symbols | `contrast` |
+| Active tab bar | `highlight2` |
+| Smart highlight, URL hover, active fold | `highlight` |
+| Find marks, mark styles 1-5 | Syntax colors (no palette shade is bright enough under the translucent overlay) |
+| Individual tab colors | Notepad++'s dark-mode defaults (the palette has no matching shades) |
+| Menus, toolbar, dialogs, controls | Not in the theme file. Notepad++'s **Dark Mode > Customized** tone; the README lists palette values |
+| Font | Inconsolata Nerd Font Mono, 10pt, weight 400, in **Default Style** and **Global override**; one family, no fallback list, no letter spacing |
+
 ## Porting checklist
 
 How the existing ports map roles to surfaces. "Derived" means the app computes the shade from a base color, so it may fall outside the palette. Fill in the same rows for a new app.
